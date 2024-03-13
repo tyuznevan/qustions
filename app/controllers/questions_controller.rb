@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
 
     @question.destroy
 
-    redirect_to questions_path, notice: "Вопрос удален! "
+    redirect_to questions_path, notice: "Вопрос удален!"
   end
 
   def show
