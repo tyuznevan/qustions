@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sessions.delete(:user_id)
+    session.delete(:user_id)
     redirect_to root_path, notice: 'Вы вышли из аккаунта!'
   end
 
