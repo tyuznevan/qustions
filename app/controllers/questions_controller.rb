@@ -31,6 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    #debugger
     @question = Question.new
     @questions = Question.all
 

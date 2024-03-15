@@ -12,9 +12,34 @@
 
   <body>
     <div class="wrapper">
+      <div class="navbar">
+        <p class="title-sm text-bold"><%= link_to 'ASK', root_path %> </p>
+        <div>
+          <% if current_user.present? %>
+            <%= content_tag 'span', "@#{current_user.nickname}", class: 'mr-sm' %>
+            <%= form_tag sessions_path, method: :delete do %>
+              <%= submit_tag 'Call Action' %>
+            <% end %>
+          <% else %>
+            <%= link_to 'Регистрация', new_user_path, class: 'button button-yellow mr-sm' %>
+            <%= link_to 'Вход', new_session_path, class: 'button button-yellow' %>
+
+          <% end %>
+        </div>
+
+      </div>
+
       <% if flash[:notice].present? %>
         <p class="mb mt message-notice"><%= flash[:notice]%></p>
       <%end%>
+
+      <% if flash[:alert].present? %>
+        <p class="mb mt message-alert"><%= flash[:alert]%></p>
+      <%end%> 
+
+      
+
+      
     
       <%= yield %>
     </div>
